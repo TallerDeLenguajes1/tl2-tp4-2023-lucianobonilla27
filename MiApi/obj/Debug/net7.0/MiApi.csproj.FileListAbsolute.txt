@@ -31,3 +31,4 @@ C:\Users\Luciano\Desktop\tl2-tp4-2023-lucianobonilla27\miapi\obj\Debug\net7.0\re
 C:\Users\Luciano\Desktop\tl2-tp4-2023-lucianobonilla27\miapi\obj\Debug\net7.0\MiApi.pdb
 C:\Users\Luciano\Desktop\tl2-tp4-2023-lucianobonilla27\miapi\obj\Debug\net7.0\MiApi.genruntimeconfig.cache
 C:\Users\Luciano\Desktop\tl2-tp4-2023-lucianobonilla27\miapi\obj\Debug\net7.0\ref\MiApi.dll
+C:\Users\Luciano\Desktop\tl2-tp4-2023-lucianobonilla27\miapi\bin\Debug\net7.0\Models\cadeteria.Json

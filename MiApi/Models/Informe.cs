@@ -1,42 +1,33 @@
-namespace EspacioClase
+namespace WebApi
 {
-    class Informe
+    public class Informe
     {
         private int montoTotalGanado;
         private int totalEnvios;
         private double promedioEnviosXCadete;
-        private Cadeteria cadeteria ;
         public int MontoTotalGanado { get => montoTotalGanado; set => montoTotalGanado = value; }
         public int TotalEnvios { get => totalEnvios; set => totalEnvios = value; }
         public double PromedioEnviosXCadete { get => promedioEnviosXCadete; set => promedioEnviosXCadete = value; }
-        public Cadeteria Cadeteria { get => cadeteria; set => cadeteria = value; }
 
-        public Informe(Cadeteria cadeteria)
+        public Informe(){
+        }
+        public Informe(List<Pedidos> ListaPedidos,List<Cadete> ListaCadetes )
         {
-            Cadeteria = cadeteria;
-            foreach (Pedidos p in Cadeteria.ListaPedidos)
+  
+            foreach (Pedidos pedido in ListaPedidos)
             {
-                if (p.Estado == "Entregado")
+                if (pedido.Estado == "Entregado")
                 {
-                    TotalEnvios++;
+                    totalEnvios++;
                 }
             }
             MontoTotalGanado = TotalEnvios*500;
-            if (Cadeteria.ListaCadetes.Count != 0)
+            if (ListaCadetes != null)
             {
-                PromedioEnviosXCadete = TotalEnvios/Cadeteria.ListaCadetes.Count;
+                PromedioEnviosXCadete = TotalEnvios/ListaCadetes.Count;
             }
         }
 
-        
-
-        public void MostrarInforme(){
-            Console.WriteLine("--------Informe de la Cadeteria "+ Cadeteria.Nombre + "--------");
-            Console.WriteLine("Cantidad de Envios REALIZADOS: "+ TotalEnvios);
-            Console.WriteLine("Promedio de Envios por cadete: "+PromedioEnviosXCadete);
-            Console.WriteLine("Monto total generado: "+ MontoTotalGanado);
-            Console.WriteLine("");
-           
-        }
     }
+    
 }

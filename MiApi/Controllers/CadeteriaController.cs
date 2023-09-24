@@ -1,53 +1,109 @@
-using EspacioClase;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
+using WebApi;
 
 namespace MiApi.Controllers
 {
+    [Route("[controller]")]
     [ApiController]
-    [Route("Cadeteria")]
     public class CadeteriaController : ControllerBase
     {
-        private static List<Pedidos> pedidos = new List<Pedidos>();
-        private static List<Cadete> cadetes = new List<Cadete>();
+        // Supongamos que Cadeteria es una clase Singleton.
+        private Cadeteria _cadeteria;
+        private readonly ILogger<CadeteriaController> _logger;
 
+        // Constructor para inicializar la Cadeteria.
         public CadeteriaController(ILogger<CadeteriaController> logger)
         {
             _logger = logger;
-
-            // Inicializa la lista de pedidos en el constructor
-            Cliente cliente1 = new Cliente("Cliente 1", "Dirección 1", 123456789, "Datos de referencia 1");
-            Cliente cliente2 = new Cliente("Cliente 2", "Dirección 2", 987654321, "Datos de referencia 2");
-            Cliente cliente3 = new Cliente("Cliente 3", "Dirección 3", 732445555, "Datos de referencia 3");
-            Cadete cadete1 = new Cadete(1, "Cadete 1", "Dirección 1", 123456789);
-            Cadete cadete2 = new Cadete(2, "Cadete 2", "Dirección 2", 987654321);
-            Cadete cadete3 = new Cadete(3, "Cadete 3", "Dirección 3", 732445555);
-
-            pedidos.Add(new Pedidos(1, "este es el pedido 1", cliente1, "Pendiente", cadete1));
-            pedidos.Add(new Pedidos(2, "este es el pedido 2", cliente2, "Realizado", cadete2));
-            pedidos.Add(new Pedidos(3, "este es el pedido 3", cliente3, "EnCamino", cadete3));
-
-            cadetes.Add(cadete1);
-            cadetes.Add(cadete2);
-            cadetes.Add(cadete3);
+            _cadeteria = Cadeteria.Instance;
         }
 
-        private readonly ILogger<CadeteriaController> _logger;
-
-        [HttpGet(Name = "GetPedidos")]
+        // GET api/Cadeteria/ListarPedidos
+        [HttpGet]
         [Route("ListarPedidos")]
-        public ActionResult<IEnumerable<Pedidos>> GetPedidos()
+        public IActionResult GetPedidos()
         {
+            var pedidos = _cadeteria.ListaPedidos;
             return Ok(pedidos);
         }
 
-        [HttpGet(Name = "GetCadetes")]
+        // GET api/Cadeteria/ListarCadetes
+
+        [HttpGet]
         [Route("ListarCadetes")]
-        public ActionResult<IEnumerable<Cadete>> GetCadetes()
+        public IActionResult GetCadetes()
         {
+            var cadetes = _cadeteria.ListaCadetes;
             return Ok(cadetes);
         }
+
+        [HttpGet]
+        [Route("Informe")]
+         public ActionResult<Informe> GetInforme()
+         {
+            _cadeteria.CrearInforme();
+            var informe = _cadeteria.CadInforme;
+            return Ok(informe);
+         }
+
+
+        [HttpPost]
+        [Route("AgregarPedido")]
+        public ActionResult<Pedidos> AddPedido(Pedidos pedido)
+        {
+            _cadeteria.AgregarPedido();
+            int cont = _cadeteria.NroPedidosCreados; // Obtener el último número de pedido generado
+            
+            // Asignar el número de pedido y agregarlo a la lista de pedidos
+            pedido.Nro = cont;
+            foreach (var p in _cadeteria.ListaPedidos)
+            {
+                if (p.Nro == cont)
+                {
+                    p.Obs = pedido.Obs;
+                    p.InfoCliente = pedido.InfoCliente;
+                    p.Estado = pedido.Estado;
+                    p.IdCadeteEncargado = pedido.IdCadeteEncargado;
+
+                }
+            }
+
+            // Puedes realizar otras operaciones aquí si es necesario
+
+            // Devolver el pedido creado
+            return Ok(pedido);
+
+        }
+
+        [HttpPut("AsignarPedido")]
+        public ActionResult<Pedidos> AsignarPedido(int idPedido, int idCadete)
+        {
+            _cadeteria.AsignarPedido(idPedido,idCadete);
+            return Ok($"Pedido {idPedido} asignado al cadete {idCadete}.");
+        }
+
+        [HttpPut("CambiarEstadoPedido")]
+        public ActionResult<Pedidos> CambiarEstadoPedido(int idPedido,int NuevoEstado)
+        {
+            _cadeteria.CambiarEstadoPedido(idPedido, NuevoEstado);
+            return Ok($"Estado del pedido {idPedido} cambiado a {NuevoEstado}.");
+        }
+
+        [HttpPut("CambiarCadetePedido")]
+         public ActionResult CambiarCadetePedido(int idPedido, int idNuevoCadete)
+        {
+            _cadeteria.CambiarCadetePedido(idPedido,idNuevoCadete);
+            return Ok($"Cadete del pedido {idPedido} cambiado a {idNuevoCadete}.");
+        }    
+
+
+ 
+
+
+        
     }
 }
 

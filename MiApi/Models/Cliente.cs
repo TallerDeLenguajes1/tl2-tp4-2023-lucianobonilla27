@@ -1,4 +1,4 @@
-namespace EspacioClase
+namespace WebApi
 {
     public class Cliente
     {
