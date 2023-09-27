@@ -1,0 +1,63 @@
+[
+    {
+      "nro": 1,
+      "obs": "Sin observaciones",
+      "infoCliente": {
+        "nombre": "Cliente1",
+        "direccion": "Dirección1",
+        "telefono": 555555555,
+        "datosReferenciaDireccion": "Referencia1"
+      },
+      "estado": "EnPreparacion",
+      "idCadeteEncargado": null
+    },
+    {
+      "nro": 2,
+      "obs": "Pedido urgente",
+      "infoCliente": {
+        "nombre": "Cliente2",
+        "direccion": "Dirección2",
+        "telefono": 666666666,
+        "datosReferenciaDireccion": "Referencia2"
+      },
+      "estado": "EnCamino",
+      "idCadeteEncargado": 1
+    },
+    {
+      "nro": 3,
+      "obs": "Pedido estándar",
+      "infoCliente": {
+        "nombre": "Cliente3",
+        "direccion": "Dirección3",
+        "telefono": 777777777,
+        "datosReferenciaDireccion": "Referencia3"
+      },
+      "estado": "Pendiente",
+      "idCadeteEncargado": null
+    },
+    {
+      "nro": 4,
+      "obs": "Sin observaciones",
+      "infoCliente": {
+        "nombre": "Cliente4",
+        "direccion": "Dirección4",
+        "telefono": 888888888,
+        "datosReferenciaDireccion": "Referencia4"
+      },
+      "estado": "Entregado",
+      "idCadeteEncargado": 2
+    },
+    {
+      "nro": 5,
+      "obs": "Pedido urgente",
+      "infoCliente": {
+        "nombre": "Cliente5",
+        "direccion": "Dirección5",
+        "telefono": 999999999,
+        "datosReferenciaDireccion": "Referencia5"
+      },
+      "estado": "EnCamino",
+      "idCadeteEncargado": 3
+    }
+  ]
+  

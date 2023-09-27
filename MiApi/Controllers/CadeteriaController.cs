@@ -19,6 +19,7 @@ namespace MiApi.Controllers
         {
             _logger = logger;
             _cadeteria = Cadeteria.Instance;
+            
         }
 
         // GET api/Cadeteria/ListarPedidos

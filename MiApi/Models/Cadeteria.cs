@@ -9,6 +9,7 @@ namespace WebApi
         private List<Pedidos> listaPedidos = new List<Pedidos>();
 
         private Informe cadInforme = new Informe();
+        private AccesoADatosPedidos datosPedidos = new AccesoADatosPedidos();
 
         public List<Cadete> ListaCadetes { get => listaCadetes; set => listaCadetes = value; }
         public int NroPedidosCreados { get => nroPedidosCreados; set => nroPedidosCreados = value; }
@@ -16,6 +17,7 @@ namespace WebApi
         public int Telefono { get => telefono; set => telefono = value; }
         public List<Pedidos> ListaPedidos { get => listaPedidos; set => listaPedidos = value; }
         public Informe CadInforme { get => cadInforme; set => cadInforme = value; }
+      
         private static Cadeteria instance;
         
         public static Cadeteria Instance
@@ -25,8 +27,13 @@ namespace WebApi
                 // Crear la instancia Cadeteria si aún no existe.
                 if (instance == null)
                 {
-                    AccesoADatos cargar = new AccesoJson();
-                    instance = cargar.CargarInfoCadeteria();
+                    AccesoADatosCadeteria cargarCadeteria = new();
+                    AccesoADatosCadetes cargarCadetes = new();
+                    AccesoADatosPedidos cargarPedidos = new();
+                    instance = cargarCadeteria.obtener();
+                    instance.ListaCadetes = cargarCadetes.Obtener();
+                    instance.ListaPedidos = cargarPedidos.Obtener();
+                    
                 }
                 return instance;
             }

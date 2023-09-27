@@ -5,7 +5,7 @@ namespace WebApi
         private int nro;
         private string obs;
         private Cliente infoCliente;
-        private string estado; // Rec
+        private string estado; 
 
         private int? idCadeteEncargado;
 

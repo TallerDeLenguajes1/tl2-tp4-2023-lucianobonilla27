@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "nombre": "Juan Pérez",
+        "direccion": "Calle Principal 123",
+        "telefono": 5555555
+    },
+    {
+        "id": 2,
+        "nombre": "María González",
+        "direccion": "Avenida Central 456",
+        "telefono": 8888888
+    },
+    {
+        "id": 3,
+        "nombre": "Carlos Rodríguez",
+        "direccion": "Plaza Mayor 789",
+        "telefono": 9999999
+    },
+    {
+        "id": 4,
+        "nombre": "Laura Torres",
+        "direccion": "Calle Secundaria 789",
+        "telefono": 7777777
+    },
+    {
+        "id": 5,
+        "nombre": "Pedro Gómez",
+        "direccion": "Avenida Norte 123",
+        "telefono": 6666666
+    }
+]

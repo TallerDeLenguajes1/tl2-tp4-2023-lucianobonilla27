@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Luciano\\Desktop\\tl2-tp4-2023-lucianobonilla27\\miapi\\MiApi.csproj": {}
+    "C:\\Users\\Luciano\\Desktop\\tl2-tp4-2023-lucianobonilla27\\MiApi\\MiApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Luciano\\Desktop\\tl2-tp4-2023-lucianobonilla27\\miapi\\MiApi.csproj": {
+    "C:\\Users\\Luciano\\Desktop\\tl2-tp4-2023-lucianobonilla27\\MiApi\\MiApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Luciano\\Desktop\\tl2-tp4-2023-lucianobonilla27\\miapi\\MiApi.csproj",
+        "projectUniqueName": "C:\\Users\\Luciano\\Desktop\\tl2-tp4-2023-lucianobonilla27\\MiApi\\MiApi.csproj",
         "projectName": "MiApi",
-        "projectPath": "C:\\Users\\Luciano\\Desktop\\tl2-tp4-2023-lucianobonilla27\\miapi\\MiApi.csproj",
+        "projectPath": "C:\\Users\\Luciano\\Desktop\\tl2-tp4-2023-lucianobonilla27\\MiApi\\MiApi.csproj",
         "packagesPath": "C:\\Users\\Luciano\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Luciano\\Desktop\\tl2-tp4-2023-lucianobonilla27\\miapi\\obj\\",
+        "outputPath": "C:\\Users\\Luciano\\Desktop\\tl2-tp4-2023-lucianobonilla27\\MiApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Luciano\\AppData\\Roaming\\NuGet\\NuGet.Config"
