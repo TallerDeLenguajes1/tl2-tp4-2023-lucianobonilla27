@@ -1,11 +1,12 @@
 namespace WebApi
 {
+    using System.IO;
     using System.Text.Json;
     using System.Text.Json.Serialization;
 
     public class AccesoADatosCadeteria
     {
-        public Cadeteria cadeteria;
+        public Cadeteria cadeteria = null;
         public Cadeteria obtener(){
             string contenido = File.ReadAllText("Models/cadeteria.json");
             cadeteria = JsonSerializer.Deserialize<Cadeteria>(contenido);
@@ -48,9 +49,12 @@ namespace WebApi
             
                 // Ruta del archivo JSON donde se guardarán los pedidos
                 string rutaArchivoJson = "Models/pedidos.json";
-
+                var opcionesDeSerializacion = new JsonSerializerOptions
+                    {
+                        WriteIndented = true // Esto activa la indentación
+                    };
                 // Serializar la lista de pedidos a formato JSON
-                string jsonPedidos = JsonSerializer.Serialize(pedidos);
+                string jsonPedidos = JsonSerializer.Serialize(pedidos,opcionesDeSerializacion);
 
                 // Escribir el JSON en el archivo
                 File.WriteAllText(rutaArchivoJson, jsonPedidos);

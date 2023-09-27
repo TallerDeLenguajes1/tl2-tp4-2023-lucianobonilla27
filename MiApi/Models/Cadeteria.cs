@@ -2,6 +2,7 @@ namespace WebApi
 {
     public class Cadeteria
     {
+        public AccesoADatosPedidos accesoADatosPedidos = new();
         private string nombre;
         private int telefono;
         private List<Cadete> listaCadetes = new List<Cadete>();
@@ -10,7 +11,7 @@ namespace WebApi
 
         private Informe cadInforme = new Informe();
         private AccesoADatosPedidos datosPedidos = new AccesoADatosPedidos();
-
+        
         public List<Cadete> ListaCadetes { get => listaCadetes; set => listaCadetes = value; }
         public int NroPedidosCreados { get => nroPedidosCreados; set => nroPedidosCreados = value; }
         public string Nombre { get => nombre; set => nombre = value; }
@@ -33,7 +34,7 @@ namespace WebApi
                     instance = cargarCadeteria.obtener();
                     instance.ListaCadetes = cargarCadetes.Obtener();
                     instance.ListaPedidos = cargarPedidos.Obtener();
-                    
+
                 }
                 return instance;
             }
@@ -68,6 +69,7 @@ namespace WebApi
                     if (pedidoBuscado.IdCadeteEncargado == null)
                     {
                         pedidoBuscado.IdCadeteEncargado = idCadete;
+                        accesoADatosPedidos.Guardar(ListaPedidos);
                         //Console.WriteLine("Pedido nro "+ idPedido +" asignado al cadete: " + cadeteBuscado.Nombre);
                     }
                 }
@@ -90,6 +92,7 @@ namespace WebApi
                 if (pedidoBuscado != null)
                 {
                     pedidoBuscado.IdCadeteEncargado = idCadete;
+                    accesoADatosPedidos.Guardar(ListaPedidos);
                 }
             }
             else
@@ -134,6 +137,7 @@ namespace WebApi
                         return;
                 }
                 pedidoEncontrado.Estado = nuevoEstado;
+                accesoADatosPedidos.Guardar(listaPedidos);
 
             }
             else

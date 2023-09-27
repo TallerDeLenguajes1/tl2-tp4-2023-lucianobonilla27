@@ -1,7 +1,7 @@
 {
-    "nombre": "Mi Cadeteria",
-    "telefono": 3815267804,
-    "nroPedidosCreados": 5,
-    "listaCadetes": [],
-    "listaPedidos": []
+    "Nombre": "Mi Cadeteria",
+    "Telefono": 38152678,
+    "NroPedidosCreados": 5,
+    "ListaCadetes": [],
+    "ListaPedidos": []
 }

@@ -71,8 +71,8 @@ namespace MiApi.Controllers
 
                 }
             }
+            _cadeteria.accesoADatosPedidos.Guardar(_cadeteria.ListaPedidos);
 
-            // Puedes realizar otras operaciones aquí si es necesario
 
             // Devolver el pedido creado
             return Ok(pedido);
