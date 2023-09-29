@@ -28,6 +28,24 @@ namespace WebApi
 
         }
 
+         public void Guardar(List<Cadete> cadetes)
+        {
+            
+                // Ruta del archivo JSON donde se guardarán los cadetes
+                string rutaArchivoJson = "Models/cadetes.json";
+                var opcionesDeSerializacion = new JsonSerializerOptions
+                    {
+                        WriteIndented = true // Esto activa la indentación
+                    };
+                // Serializar la lista de cadetes a formato JSON
+                string jsonPedidos = JsonSerializer.Serialize(cadetes,opcionesDeSerializacion);
+
+                // Escribir el JSON en el archivo
+                File.WriteAllText(rutaArchivoJson, jsonPedidos);
+            
+           
+        }
+
 
     }   
 

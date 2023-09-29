@@ -60,15 +60,15 @@
     }
   },
   {
-    "Obs": "Prueba",
-    "Estado": "Entregado",
+    "Obs": "prueba 2",
+    "Estado": "Pendiente",
     "Nro": 6,
-    "IdCadeteEncargado": 1,
+    "IdCadeteEncargado": null,
     "InfoCliente": {
-      "Nombre": "Richard",
-      "Direccion": "nose",
-      "Telefono": 5354353,
-      "DatosReferenciaDireccion": "casa blanca"
+      "Nombre": "Miriam",
+      "Direccion": "san juan 500",
+      "Telefono": 3534535,
+      "DatosReferenciaDireccion": "por ahi"
     }
   }
 ]

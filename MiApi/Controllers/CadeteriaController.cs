@@ -100,6 +100,34 @@ namespace MiApi.Controllers
             return Ok($"Cadete del pedido {idPedido} cambiado a {idNuevoCadete}.");
         }    
 
+        [HttpGet]
+        [Route("ListarPedidoId")]
+        public IActionResult GetPedidosId(int idPedido)
+        {
+            var pedido =  _cadeteria.ListaPedidos.FirstOrDefault(pedido => pedido.Nro == idPedido);
+            return Ok(pedido);
+        }
+
+        [HttpGet]
+        [Route("ListarCadeteId")]
+        public IActionResult GetCadeteId(int idCadete)
+        {
+            var cadete =  _cadeteria.ListaCadetes.FirstOrDefault(cadete => cadete.Id == idCadete);
+            return Ok(cadete);
+        }
+
+        [HttpPost]
+        [Route("AgregarCadete")]
+        public ActionResult<Pedidos> AddCadete(Cadete nuevo)
+        {
+            _cadeteria.AgregarCadete(nuevo);
+          
+          
+            return Ok($"El cadete {nuevo.Nombre} se incorporó a la cadeteria");
+
+        }
+
+
 
  
 

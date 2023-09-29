@@ -1,32 +1,38 @@
 [
-    {
-        "Id": 1,
-        "Nombre": "Juan Pérez",
-        "Direccion": "Calle Principal 123",
-        "Telefono": 5555555
-    },
-    {
-        "Id": 2,
-        "Nombre": "María González",
-        "Direccion": "AvenIda Central 456",
-        "Telefono": 8888888
-    },
-    {
-        "Id": 3,
-        "Nombre": "Carlos Rodríguez",
-        "Direccion": "Plaza Mayor 789",
-        "Telefono": 9999999
-    },
-    {
-        "Id": 4,
-        "Nombre": "Laura Torres",
-        "Direccion": "Calle Secundaria 789",
-        "Telefono": 7777777
-    },
-    {
-        "Id": 5,
-        "Nombre": "Pedro Gómez",
-        "Direccion": "AvenIda Norte 123",
-        "Telefono": 6666666
-    }
+  {
+    "Id": 1,
+    "Nombre": "Juan P\u00E9rez",
+    "Direccion": "Calle Principal 123",
+    "Telefono": 5555555
+  },
+  {
+    "Id": 2,
+    "Nombre": "Mar\u00EDa Gonz\u00E1lez",
+    "Direccion": "AvenIda Central 456",
+    "Telefono": 8888888
+  },
+  {
+    "Id": 3,
+    "Nombre": "Carlos Rodr\u00EDguez",
+    "Direccion": "Plaza Mayor 789",
+    "Telefono": 9999999
+  },
+  {
+    "Id": 4,
+    "Nombre": "Laura Torres",
+    "Direccion": "Calle Secundaria 789",
+    "Telefono": 7777777
+  },
+  {
+    "Id": 5,
+    "Nombre": "Pedro G\u00F3mez",
+    "Direccion": "AvenIda Norte 123",
+    "Telefono": 6666666
+  },
+  {
+    "Id": 5,
+    "Nombre": "juan",
+    "Direccion": "malvinas 250",
+    "Telefono": 7868768
+  }
 ]

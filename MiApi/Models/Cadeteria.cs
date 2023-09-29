@@ -3,6 +3,7 @@ namespace WebApi
     public class Cadeteria
     {
         public AccesoADatosPedidos accesoADatosPedidos = new();
+        public AccesoADatosCadetes accesoADatosCadetes = new();
         private string nombre;
         private int telefono;
         private List<Cadete> listaCadetes = new List<Cadete>();
@@ -29,11 +30,13 @@ namespace WebApi
                 if (instance == null)
                 {
                     AccesoADatosCadeteria cargarCadeteria = new();
-                    AccesoADatosCadetes cargarCadetes = new();
-                    AccesoADatosPedidos cargarPedidos = new();
+                    // AccesoADatosCadetes cargarCadetes = new();
+                    // AccesoADatosPedidos cargarPedidos = new();
                     instance = cargarCadeteria.obtener();
-                    instance.ListaCadetes = cargarCadetes.Obtener();
-                    instance.ListaPedidos = cargarPedidos.Obtener();
+                    // instance.ListaCadetes = cargarCadetes.Obtener();
+                    // instance.ListaPedidos = cargarPedidos.Obtener();
+                    instance.ListaCadetes = instance.accesoADatosCadetes.Obtener();
+                    instance.ListaPedidos = instance.accesoADatosPedidos.Obtener();
 
                 }
                 return instance;
@@ -82,6 +85,13 @@ namespace WebApi
             {
                 //Console.WriteLine("No se encontro el cadete que ingresaste");
             }
+        }
+
+        public void AgregarCadete(Cadete nuevo){
+            int cont = listaCadetes.Count;
+            nuevo.Id = cont++;
+            listaCadetes.Add(nuevo);
+            accesoADatosCadetes.Guardar(listaCadetes);
         }
         public void CambiarCadetePedido(int idPedido, int idCadete)
         {
